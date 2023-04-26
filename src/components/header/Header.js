@@ -14,13 +14,13 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link to={"/popular"} className='nav-link'>Popular</Link>
+                                <Link to={"/movies/popular"} className='nav-link'>Popular</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={"toprated"} className='nav-link'>Top Rated</Link>
+                                <Link to={"/movies/toprated"} className='nav-link'>Top Rated</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={"upcoming"} className='nav-link'>Upcoming</Link>
+                                <Link to={"/movies/upcoming"} className='nav-link'>Upcoming</Link>
                             </li>
                         </ul>
                     </div>

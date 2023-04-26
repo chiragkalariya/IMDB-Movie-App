@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import './home.css'
+import { Link } from 'react-router-dom';
+import MovieList from '../components/movieList/movieList';
 
 const Home = () => {
     const [popularMovie, setPopularMovie] = useState([]);
@@ -9,7 +11,7 @@ const Home = () => {
         .then(res => res.json())
         .then(data => setPopularMovie(data.results))        
     }, [])
-    console.log(popularMovie);
+    // console.log(popularMovie);
     return (
         <>
             <Carousel
@@ -20,28 +22,31 @@ const Home = () => {
                 showStatus={false}
             >
                 {
-                    popularMovie.map((movie) =>(
-                        <div className='movieposter'>
+                    popularMovie.map((movie, k) =>(
+                        <Link className='movieposter' key={k} to={`/movie/${movie.id}`}>
                             <div className="posterimage">
-                                <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} alt="" />
+                                <img src={`https://image.tmdb.org/t/p/original/${movie && movie.backdrop_path}`} alt="" />
                             </div>
                             <div className="posterimage_overlay">
-                                <h2>{movie.original_title}</h2>
+                                <h2>{movie ? movie.original_title: ""}</h2>
                                 <div className="posterimage_runtime">
-                                    {movie.release_date}
+                                    {movie ? movie.release_date: ""}
                                     <span className='rating'>
-                                        {movie.vote_average}
-                                        <span><i class="fa-solid fa-star" style={{color:"red"}}></i></span>
+                                        {movie ? movie.vote_average : ""}
+                                        <span><i className="fa fa-star" aria-hidden="true"></i></span>
                                     </span>
                                 </div>
                                 <div className="posterimage_description">
-                                    {movie.overview}
+                                    {movie ? movie.overview: ""}
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))
                 }
             </Carousel>
+            <div className="container">
+                <MovieList />
+            </div>
         </>
     )
 }
