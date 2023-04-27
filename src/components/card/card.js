@@ -17,7 +17,7 @@ const Card = ({movie}) => {
                 isLoadig 
                 ? 
                 <div className="cards">
-                    <SkeletonTheme baseColor="#202020" highlightColor="#444">
+                    <SkeletonTheme baseColor="#444" highlightColor="#A9A9A9">
                         <Skeleton height={380} duration={2} />
                     </SkeletonTheme>
                 </div> 

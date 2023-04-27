@@ -17,7 +17,7 @@ const Header = () => {
                                 <Link to={"/movies/popular"} className='nav-link'>Popular</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to={"/movies/toprated"} className='nav-link'>Top Rated</Link>
+                                <Link to={"/movies/top_rated"} className='nav-link'>Top Rated</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to={"/movies/upcoming"} className='nav-link'>Upcoming</Link>
