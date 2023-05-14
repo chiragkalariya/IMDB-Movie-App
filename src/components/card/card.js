@@ -4,7 +4,7 @@ import "./card.css"
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 
-const Card = ({ movie }) => {
+const Card = ({ movie, key }) => {
     const [isLoadig, setLoading] = useState(true);
     // console.log(movie);
     useEffect(() => {
@@ -16,14 +16,14 @@ const Card = ({ movie }) => {
         {
             isLoadig
                 ?
-                <div className="cards">
+                <div className="cards" key={key}>
                     <SkeletonTheme baseColor="#444" highlightColor="#A9A9A9">
                         <Skeleton height={380} duration={2} />
                     </SkeletonTheme>
                 </div>
                 :
                 <Link to={`/movie/${movie.id}`}>
-                    <div className="cards">
+                    <div className="cards" key={key}>
                         <img src={`https://image.tmdb.org/t/p/original/${movie ? movie.poster_path : ""}`} className="cards_img" alt="" />
                         <div className="card_overlay">
                             <h4 className="card_title">{movie ? movie.original_title : ""}</h4>
